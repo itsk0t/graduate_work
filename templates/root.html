@@ -1,0 +1,190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/f62ec13992.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="{% static 'js/js.js' %}"></script>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous">
+</script>
+
+<header class="">
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom ps-5 pe-5">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="nav_lc">
+                <ul class="navbar-nav">
+                    <li class="nav-item me-4"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="#">About us</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ps-5 pe-5">
+        <div class="">
+            <div class="d-flex justify-content-between pt-3 ps-3 pe-3">
+                <div class="d-flex ">
+                    <h1 style="font-size: 90px;">LOGO</h1>
+                    <p class="ms-3">
+                        <span style="font-size: 35px;"><b>Доставка Город</b></span><br>
+                        30 минут 4.57 <i class="fa-solid fa-star"></i>
+                    </p>
+                </div>
+                <div class="d-flex align-items-center">
+                    {% if user.is_active %}
+                    <a class="btn btn-danger" href="#">Logout</a>
+                    {% else %}
+                    <a class="btn btn-primary me-3" href="#">Register</a>
+                    <a class="btn btn-primary" href="#">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ps-5 pe-5 border-bottom head_menu">
+        <div class="d-flex justify-content-between pe-3">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="nav_lc2">
+                        <ul class="navbar-nav">
+                            <li class="nav-item me-4 "><a class="nav-link" href="#">Menu 1</a></li>
+                            <li class="nav-item me-4 "><a class="nav-link" href="#">Menu 2</a></li>
+                            <li class="nav-item me-4 "><a class="nav-link" href="#">Menu 3</a></li>
+                            <li class="nav-item me-4 "><a class="nav-link" href="#">Menu 4</a></li>
+                            <li class="nav-item me-4 "><a class="nav-link" href="#">Menu 5</a></li>
+                            <li class="nav-item me-4 "><a class="nav-link" href="#">Menu 6</a></li>
+                            <li class="nav-item me-4 "><a class="nav-link" href="#">Menu 7</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="d-flex align-items-center">
+                {% if user.is_active %}
+                <a class="btn btn-danger" href="#">Basket</a>
+                {% else %}
+                <a class="btn btn-danger" href="#">Basket</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="ps-5 pe-5">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!--<footer>
+    <div>
+
+    </div>
+
+    <div class="">
+        <div class="d-flex justify-content-between ps-4 pe-5">
+            <div class="d-flex w-25 justify-content-between">
+                <section class="">
+                    <div class="text-md-start mt-5">
+                        <div class="row mt-3">
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+                                <p><a href="#!" class="text-reset">Angular</a></p>
+                                <p><a href="#!" class="text-reset">React</a></p>
+                                <p><a href="#!" class="text-reset">Vue</a></p>
+                                <p><a href="#!" class="text-reset">Laravel</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="ms-3">
+                    <div class=" text-md-start mt-5">
+                        <div class="row mt-3">
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+                                <p><a href="#!" class="text-reset">Angular</a></p>
+                                <p><a href="#!" class="text-reset">React</a></p>
+                                <p><a href="#!" class="text-reset">Vue</a></p>
+                                <p><a href="#!" class="text-reset">Laravel</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="ms-3">
+                    <div class=" text-md-start mt-5">
+                        <div class="row mt-3">
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+                                <p><a href="#!" class="text-reset">Angular</a></p>
+                                <p><a href="#!" class="text-reset">React</a></p>
+                                <p><a href="#!" class="text-reset">Vue</a></p>
+                                <p><a href="#!" class="text-reset">Laravel</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="mt-5 pe-3">
+                <a href="#" style="text-decoration: none; color: #000;">
+                    <div class="d-flex border border-2 p-2 rounded-3"  style="color: #fff;">
+                        <i class="fa-brands fa-google-play" style="font-size: 50px;"></i>
+                        <h5 class="d-flex align-items-center ms-2 mt-1">Download GooglePlay</h5>
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none; color: #000;">
+                    <div class="d-flex border border-2 p-2 rounded-3 mt-3"  style="color: #fff;">
+                        <i class="fa-brands fa-app-store-ios" style="font-size: 50px;"></i></i>
+                        <h5 class="d-flex align-items-center ms-2 mt-1">Download AppStore</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="ps-5 pe-5 d-flex justify-content-between mt-5">
+            <div class="pe-3">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="nav_lc">
+                            <ul class="navbar-nav">
+                                <li class="nav-item me-4"><a class="nav-link" href="#"  style="color: #fff;">Menu 1</a></li>
+                                <li class="nav-item me-4"><a class="nav-link" href="#"  style="color: #fff;">Menu 2</a></li>
+                                <li class="nav-item me-4"><a class="nav-link" href="#"  style="color: #fff;">Menu 3</a></li>
+                                <li class="nav-item me-4"><a class="nav-link" href="#"  style="color: #fff;">Menu 4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="pe-3">
+                <a href="#" style="text-decoration: none; color: #fff; font-size: 35px;" class="ms-3"><i
+                        class="fa-brands fa-tiktok"></i></a>
+                <a href="#" style="text-decoration: none; color: #fff; font-size: 35px;" class="ms-3"><i
+                        class="fa-brands fa-telegram"></i></a>
+                <a href="#" style="text-decoration: none; color: #fff; font-size: 35px;" class="ms-3"><i
+                        class="fa-brands fa-vk"></i></a>
+            </div>
+        </div>
+
+        <div class="ps-5 pe-5 mt-3">
+            <div class="p-3">
+                <p>
+                    © 2024 ООО “Название” <br>
+                    ОГРН 13312232131, ИНН 12131231 <br>
+                    1234, Курганская область, г. Курган, ул. Куйбышева, д. 666
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>-->
+</body>
+</html>

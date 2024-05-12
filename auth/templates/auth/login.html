@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="p-3">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success w-25">Войти</button>
+    </form>
+</div>
+{% endblock %}

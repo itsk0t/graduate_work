@@ -1,0 +1,95 @@
+footer {
+    background: #1d1d1d;
+    color: #fff;
+    text-decoration: none;
+}
+
+.card_btn_custom {
+    background: #fff0e6;
+    color: #d15700;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+}
+
+.card_btn_custom:hover {
+    background: #ffd2b3;
+    color: #d15700;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    transition: 0.6s;
+}
+
+.product_block_title {
+    font-size: 55px;
+}
+
+.card_img_custom {
+    text-decoration: none;
+    color: #fff;
+}
+
+.card_img_custom:hover {
+    border: 2.7px solid #d15700;
+    transition: 0.1s;
+}
+
+.product-view .product-name{
+    font-size: 24px;
+    color: #000;
+}
+
+.product-view .product-name .label-stock{
+    float: right;
+}
+
+.product-view .product-path{
+    font-size: 13px;
+    font-weight: 500;
+    color: #252525;
+    margin-bottom: 16px;
+}
+
+.product-view .selling-price{
+    font-size: 26px;
+    color: #000;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.product-view .original-price{
+    font-size: 18px;
+    color: #937979;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.product-view .btn1{
+    border: 1px solid;
+    margin-right: 3px;
+    border-radius: 0px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.product-view .btn1:hover{
+    background-color: #2874f0;
+    color: #fff;
+}
+
+.product-view .input-quantity{
+    border: 1px solid #000;
+    margin-right: 3px;
+    font-size: 12px;
+    margin-top: 10px;
+    width: 58px;
+    outline: none;
+    text-align: center;
+}
