@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CART_SESSION_ID = 'cart'
+
 AUTH_USER_MODEL = 'custom_auth.CustomUser'
 
 # Application definition
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'products.apps.ProductConfig',
     'technical.apps.TechnicalConfig',
     'comments.apps.CommentsConfig',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'technical.context_processors.header_menu',
+                'cart.context_processors.cart',
                 # 'technical.context_processors.header_city',
             ],
         },

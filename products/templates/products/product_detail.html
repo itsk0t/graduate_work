@@ -70,7 +70,12 @@
                             </p>
                         </div>
                         <div class="mt-4">
-                            <a href="#" class="card_btn_custom">В корзину</a>
+                            <form action="{% url 'cart:cart_add' product_detail.id %}" method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="submit" class="card_btn_custom" value="В корзину">
+                            </form>
+
                         </div>
                     </div>
                 </div>

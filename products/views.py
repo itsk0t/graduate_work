@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.views.generic import DetailView
+from django.views.generic.edit import FormMixin
+from cart.forms import CartAddProductForm
 from products.models import Products, Category, Promotion
 
 
@@ -16,7 +18,8 @@ def product_list_view(request):
                    'category': category})
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(FormMixin, DetailView):
     model = Products
     template_name = 'products/product_detail.html'
     context_object_name = 'product_detail'
+    form_class = CartAddProductForm

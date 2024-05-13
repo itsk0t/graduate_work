@@ -76,9 +76,9 @@
 
             <div class="d-flex align-items-center">
                 {% if user.is_active %}
-                <a class="btn btn-danger" href="#">Basket</a>
+                    <a class="btn btn-danger" href="{% url 'cart:cart_detail' %}">Basket</a>
                 {% else %}
-                <a class="btn btn-danger" href="#">Basket</a>
+                    <a class="btn btn-danger" href="#">Basket</a>
                 {% endif %}
             </div>
         </div>
