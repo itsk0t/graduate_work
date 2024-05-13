@@ -1,3 +1,6 @@
 from django.contrib import admin
+from technical.models import City, UserAddress
 
-# Register your models here.
+
+admin.site.register(City)
+admin.site.register(UserAddress)
