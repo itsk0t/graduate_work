@@ -35,28 +35,28 @@
                         <hr>
                         <p class="product-path">
                             {% if product_detail.mass == None %}
-                                <p style="display: none">{{ product_detail.mass }}</p>
-                            {% else %}
-                                {{ product_detail.mass }}  гр.
-                            {% endif %}
+                        <p style="display: none">{{ product_detail.mass }}</p>
+                        {% else %}
+                        {{ product_detail.mass }} гр.
+                        {% endif %}
 
-                            {% if product_detail.volume == None %}
-                                <p style="display: none">{{ product_detail.volume }}</p>
-                            {% else %}
-                                {{ product_detail.volume }}  л.
-                            {% endif %}
+                        {% if product_detail.volume == None %}
+                        <p style="display: none">{{ product_detail.volume }}</p>
+                        {% else %}
+                        {{ product_detail.volume }} л.
+                        {% endif %}
 
-                            {% if product_detail.quantity == None %}
-                                <p style="display: none">{{ product_detail.quantity }}</p>
-                            {% else %}
-                                {{ product_detail.quantity }} шт.
-                            {% endif %}
+                        {% if product_detail.quantity == None %}
+                        <p style="display: none">{{ product_detail.quantity }}</p>
+                        {% else %}
+                        {{ product_detail.quantity }} шт.
+                        {% endif %}
 
-                            {% if product_detail.diameter == None %}
-                                <p style="display: none">{{ product_detail.diameter }}</p>
-                            {% else %}
-                                {{ product_detail.diameter }} см.
-                            {% endif %}
+                        {% if product_detail.diameter == None %}
+                        <p style="display: none">{{ product_detail.diameter }}</p>
+                        {% else %}
+                        {{ product_detail.diameter }} см.
+                        {% endif %}
                         </p>
                         <div>
                             <span class="selling-price">{{ product_detail.price }}<i
@@ -73,9 +73,12 @@
                             <form action="{% url 'cart:cart_add' product_detail.id %}" method="post">
                                 {% csrf_token %}
                                 {{ form.as_p }}
-                                <input type="submit" class="card_btn_custom" value="В корзину">
+                                {% if user.is_active %}
+                                    <input type="submit" class="card_btn_custom" value="В корзину">
+                                {% else %}
+                                    <a href="#" class="card_btn_custom">В корзину</a>
+                                {% endif %}
                             </form>
-
                         </div>
                     </div>
                 </div>

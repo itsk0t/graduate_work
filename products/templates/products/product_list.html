@@ -49,7 +49,15 @@ border: none;
                             </div>
                             <h5 class="card-text d-flex justify-content-between align-items-center mt-2">
                                 <span class="">{{ el.price }}<i class="fa-solid fa-ruble-sign ms-1"></i></span>
-                                <a href="#" class="card_btn_custom">В корзину</a>
+                                <form action="{% url 'cart:cart_add' el.id %}" method="post" class="form_basket_add">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    {% if user.is_active %}
+                                        <input type="submit" class="card_btn_custom" value="В корзину">
+                                    {% else %}
+                                        <a href="#" class="card_btn_custom">В корзину</a>
+                                    {% endif %}
+                                </form>
                             </h5>
                         </div>
                     </div>

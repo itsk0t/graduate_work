@@ -93,3 +93,15 @@ footer {
     outline: none;
     text-align: center;
 }
+
+form label {
+    display: none;
+}
+
+.form_basket_add select {
+    display: none;
+}
+
+form input {
+    border: none;
+}

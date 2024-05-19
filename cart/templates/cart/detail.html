@@ -5,55 +5,48 @@
 {% endblock %}
 
 {% block content %}
-<h1>Корзина покупок</h1>
-<table class="cart">
-    <thead>
-    <tr>
-        <th>Картинка</th>
-        <th>Товар</th>
-        <th>Обновить кол-во</th>
-        <th>Удалить</th>
-        <th>Кол-во</th>
-        <th>Цена за шт</th>
-        <th>Общая стоимость</th>
-    </tr>
-    </thead>
-    <tbody>
+<h1 class="mt-4 ">Basket</h1>
+<div>
     {% for item in cart %}
     {% with product=item.product %}
-    <tr>
-        <td>
-            <a href="{{ product.get_absolute_url }}">
-                <img src="{{ product.image.url }}">
-            </a>
-        </td>
-        <td>{{ product.name }}</td>
-        <td>
-            <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                {{ item.update_quantity_form.quantity }}
-                {{ item.update_quantity_form.update }}
-                <input type="submit" value="Обновить">
-                {% csrf_token %}
-            </form>
-        </td>
-        <td><a href="{% url 'cart:cart_remove' product.id %}">Удалить</a></td>
-        <td>
-            {{ item.quantity }}
-        </td>
-        <td class="num">${{ item.price }}</td>
-        <td class="num">${{ item.total_price }}</td>
-    </tr>
+    <div class="card rounded-3 mb-4 mt-4">
+        <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                    <a href="{% url 'product:product_detail' product.id %}">
+                        <img src="{{ product.image.url }}" class="img-fluid rounded-3">
+                    </a>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2">{{ product.title }}</p>
+                    <!--                    <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>-->
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                        {{ item.update_quantity_form.quantity }}
+                        {{ item.update_quantity_form.update }}
+                        <input type="submit" value="Обновить">
+                        {% csrf_token %}
+                    </form>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h5 class="mb-0">{{ item.total_price }}</h5>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a href="{% url 'cart:cart_remove' product.id %}" class="btn btn-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+    </div>
     {% endwith %}
     {% endfor %}
-    <tr class="total">
-        <td>Всего</td>
-        <td colspan="4"></td>
-        <td class="num">${{ cart.get_total_price }}</td>
-    </tr>
-    </tbody>
-</table>
-<p class="text-right">
-    <a href="{% url 'product:product_list' %}" class="button light">В магазин</a>
-    <a href="#" class="button">Оформить заказ</a>
-</p>
+
+    <div>
+        <a href="{% url 'order:order_create' %}" class="btn btn-primary">
+            Checkout
+        </a>
+    </div>
+</div>
+
+
 {% endblock %}

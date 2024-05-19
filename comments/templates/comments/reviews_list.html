@@ -4,11 +4,15 @@
 
 <div>
     {% block content %}
-    <div>
-        <form method="post">
+    <div class="mt-4">
+        <form method="post" class="border-bottom pb-3">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" class="btn btn-primary" value="OK">
+            {% if user.is_active %}
+                <input type="submit" class="btn btn-primary" value="OK">
+            {% else %}
+                <a href="#" class="btn btn-primary">OK</a>
+            {% endif %}
         </form>
     </div>
     <div class="mt-4">

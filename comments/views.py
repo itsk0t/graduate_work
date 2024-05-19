@@ -4,7 +4,7 @@ from comments.models import Comments
 
 
 def reviews_view(request):
-    reviews = Comments.objects.filter(status=True)
+    reviews = Comments.objects.filter(status=True).order_by('-date')
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():

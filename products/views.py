@@ -7,6 +7,7 @@ from products.models import Products, Category, Promotion
 
 
 def product_list_view(request):
+    form = CartAddProductForm()
     category = Category.objects.all()
     promotion = Promotion.objects.filter(~Q(id=1))
     pizza = Products.objects.filter(category_id=1) & Products.objects.filter(stop=True)
@@ -15,7 +16,8 @@ def product_list_view(request):
                   {'combo': combo,
                    'pizza': pizza,
                    'promotion': promotion,
-                   'category': category})
+                   'category': category,
+                    'form': form})
 
 
 class ProductDetailView(FormMixin, DetailView):
