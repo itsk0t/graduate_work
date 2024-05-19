@@ -1,0 +1,56 @@
+{% extends 'root.html' %}
+
+{% block title %}Account{% endblock %}
+
+<div>
+    {% block content %}
+    <div class="mt-4">
+        <div>
+            <h2>Your Address</h2>
+            <div>
+                {% for el in user_address %}
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <p class="card-text">
+                            г. {{ el.city_id }}
+                            -
+                            ул. {{ el.street }}
+                            -
+                            д. {{ el.house }}
+                            -
+                            подъезд {{ el.entrance }}
+                            -
+                            этаж. {{ el.floor }}
+                            -
+                            кв. {{ el.apartment }}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Create Address
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create Address</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="OK" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</div>

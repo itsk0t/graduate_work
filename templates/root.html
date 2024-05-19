@@ -25,7 +25,11 @@
                     <li class="nav-item me-4"><a class="nav-link" href="{% url 'product:product_list' %}">Home</a></li>
                     <li class="nav-item me-4"><a class="nav-link" href="#">About us</a></li>
                     <li class="nav-item me-4"><a class="nav-link" href="#">Contact</a></li>
-                    <li class="nav-item me-4"><a class="nav-link" href="{% url 'reviews:reviews_list' %}">Reviews</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="{% url 'reviews:reviews_list' %}">Reviews</a>
+                    </li>
+                    {% if user.is_active %}
+                        <li class="nav-item me-4"><a class="nav-link" href="{% url 'account:account' %}">Account</a>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -62,7 +66,7 @@
                     <div class="collapse navbar-collapse" id="nav_lc2">
                         <ul class="navbar-nav">
                             {% for el in category_menu %}
-                                <li class="nav-item me-4 "><a class="nav-link" href="#">{{ el.title }}</a></li>
+                            <li class="nav-item me-4 "><a class="nav-link" href="#">{{ el.title }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -71,9 +75,9 @@
 
             <div class="d-flex align-items-center">
                 {% if user.is_active %}
-                    <a class="btn btn-danger" href="{% url 'cart:cart_detail' %}">Basket</a>
+                <a class="btn btn-danger" href="{% url 'cart:cart_detail' %}">Basket</a>
                 {% else %}
-                    <a class="btn btn-danger" href="#">Basket</a>
+                <a class="btn btn-danger" href="#">Basket</a>
                 {% endif %}
             </div>
         </div>
