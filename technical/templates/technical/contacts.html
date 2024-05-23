@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block title %}Contacts{% endblock %}
+
+<div>
+    {% block content %}
+    <div class="mt-5">
+        <div class="d-flex justify-content-between">
+            <div class="w-50">
+                {% for el in point %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p class="card-text"><b>Город: </b>{{ el.city_id }}</p>
+                        <p class="card-text"><b>Район: </b>{{ el.area }}</p>
+                        <p class="card-text"><b>Адрес: </b>{{ el.address }}</p>
+                        <p class="card-text"><b>Доставка: </b>{{ el.time_delivery }}</p>
+                        <p class="card-text"><b>Самовывоз: </b>{{ el.time_pickup }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="w-25">
+                {% for el in contact_inf %}
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text"><b>Телефон: </b>{{ el.phone }}</p>
+                        <p class="card-text"><b>Вопросы и предложения <br> Email-адрес: </b>{{ el.email }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</div>

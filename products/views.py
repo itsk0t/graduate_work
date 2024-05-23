@@ -10,11 +10,9 @@ def product_list_view(request):
     form = CartAddProductForm()
     category = Category.objects.all()
     promotion = Promotion.objects.filter(~Q(id=1))
-    pizza = Products.objects.filter(category_id=1) & Products.objects.filter(stop=True)
-    combo = Products.objects.filter(category_id=2) & Products.objects.filter(stop=True)
+    products = Products.objects.filter(stop=True)
     return render(request, 'products/product_list.html',
-                  {'combo': combo,
-                   'pizza': pizza,
+                  {'products': products,
                    'promotion': promotion,
                    'category': category,
                     'form': form})

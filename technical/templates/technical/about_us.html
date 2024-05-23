@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block title %}About Us{% endblock %}
+
+<div>
+    {% block content %}
+    <div class="mt-5">
+        <div>
+            {% for el in inf %}
+            <div class="d-flex justify-content-between">
+                <img src="{{ el.image.url }}" class="w-50 rounded-3">
+                <div class="ms-3">
+                    <p class="card-text">{{ el.text }}</p>
+                    {% for i in contact_inf %}
+                        <p class="card-text"><b>Телефон: </b>{{ i.phone }}</p>
+                        <p class="card-text"><b>Email-адрес: </b>{{ i.email }}</p>
+                    {% endfor %}
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+</div>

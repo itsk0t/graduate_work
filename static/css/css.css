@@ -27,6 +27,30 @@ footer {
     transition: 0.6s;
 }
 
+.btn_header_custom {
+    background: #e5e5e5;
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+}
+
+.btn_header_custom:hover {
+    background: #e5e5e5;
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    opacity: 0.5;
+    transition: 0.6s;
+}
+
 .product_block_title {
     font-size: 55px;
 }
@@ -104,4 +128,30 @@ form label {
 
 form input {
     border: none;
+}
+
+.btn_footer {
+    text-decoration:
+    none; color: #000;
+}
+
+.btn_footer:hover {
+    text-decoration:
+    none; color: #000;
+    opacity: 0.5;
+    transition: 0.6s;
+}
+
+.btn_footer_social {
+    text-decoration: none;
+    color: #fff;
+    font-size: 35px;
+}
+
+.btn_footer_social:hover {
+    text-decoration: none;
+    color: #fff;
+    font-size: 35px;
+    opacity: 0.5;
+    transition: 0.6s;
 }
