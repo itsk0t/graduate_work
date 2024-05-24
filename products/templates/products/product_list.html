@@ -1,6 +1,6 @@
 {% extends 'root.html' %}
 
-{% block title %}Product_list{% endblock %}
+{% block title %}Меню{% endblock %}
 border: none;
 <div class="">
     {% block content %}
@@ -18,9 +18,9 @@ border: none;
                 </div>
                 <div class="carousel-inner">
                     {% for el in promotion %}
-                    <div class="carousel-item active d-flex justify-content-center">
-                        <img class="d-block w-75" src="{{ el.image.url }}" alt="{{ el.title }}">
-                    </div>
+                    <a class="carousel-item active d-flex justify-content-center ">
+                        <img class="d-block w-75 rounded-3" src="{{ el.image.url }}" alt="{{ el.title }}">
+                    </a>
                     {% endfor %}
                 </div>
                 <a class="carousel-control-prev" href="#Carousel3" role="button" data-bs-slide="prev">
@@ -60,7 +60,10 @@ border: none;
                                     {% if user.is_active %}
                                     <input type="submit" class="card_btn_custom" value="В корзину">
                                     {% else %}
-                                    <a href="#" class="card_btn_custom">В корзину</a>
+                                    <a type="button" class="card_btn_custom" data-bs-toggle="modal"
+                                       data-bs-target="#exampleModal">
+                                        В корзину
+                                    </a>
                                     {% endif %}
                                 </form>
                             </h5>
@@ -70,6 +73,24 @@ border: none;
                     {% endfor %}
                 </div>
                 {% endfor %}
+            </div>
+        </div>
+
+        <!-- Модальное окно -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column align-items-center">
+                        <h2>Вы не авторизованы</h2>
+                        <div class="mt-2">
+                            <a class="btn btn-success rounded-5" href="{% url 'auth:register' %}">Регистрация</a>
+                            <a class="btn btn-success rounded-5" href="{% url 'auth:login' %}">Войти</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         {% endblock %}

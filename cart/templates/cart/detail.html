@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="mt-4 ">Basket</h1>
 <div>
     {% for item in cart %}
     {% with product=item.product %}
@@ -25,7 +24,7 @@
                     <form action="{% url 'cart:cart_add' product.id %}" method="post">
                         {{ item.update_quantity_form.quantity }}
                         {{ item.update_quantity_form.update }}
-                        <input type="submit" value="Обновить">
+                        <input type="submit" value="Обновить" class="btn btn-success rounded-5">
                         {% csrf_token %}
                     </form>
                 </div>
@@ -33,7 +32,7 @@
                     <h5 class="mb-0">{{ item.total_price }}</h5>
                 </div>
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                    <a href="{% url 'cart:cart_remove' product.id %}" class="btn btn-danger">Удалить</a>
+                    <a href="{% url 'cart:cart_remove' product.id %}" class="btn btn-danger rounded-5">Удалить</a>
                 </div>
             </div>
         </div>
@@ -42,8 +41,8 @@
     {% endfor %}
 
     <div>
-        <a href="{% url 'order:order_create' %}" class="btn btn-primary">
-            Checkout
+        <a href="{% url 'order:order_create' %}" class="btn btn-success rounded-5">
+            Оформить заказ
         </a>
     </div>
 </div>

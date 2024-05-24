@@ -1,14 +1,17 @@
 {% extends 'index.html' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Регистрация{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-center p-3">
     <form method="post" class="w-100">
         {% csrf_token %}
         {{ form.as_p }}
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required><span class="ms-2">Примите условия и соглашения</span> <br>
-        <input class="btn btn-success w-25 mt-2" type="submit" value="Зарагистрироваться">
+        <div class="form-outline mb-4">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required><span class="ms-2">Примите условия и соглашения</span>
+            <br>
+            <input class="btn btn-success w-25 mt-2" type="submit" value="Зарагистрироваться">
+        </div>
     </form>
 </div>
 {% endblock %}

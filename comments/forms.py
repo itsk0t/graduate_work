@@ -11,5 +11,5 @@ class CommentForm(forms.ModelForm):
         ]
 
         widgets = {
-            'text': forms.TextInput(attrs={'class': 'form-control w-75', 'placeholder': 'Text'}),
+            'text': forms.TextInput(attrs={'class': 'form-control w-75', 'placeholder': 'Введите текст'}),
         }

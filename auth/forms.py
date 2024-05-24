@@ -5,13 +5,13 @@ from auth.models import CustomUser
 
 
 class RegisterUserForm(UserCreationForm):
-    username = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control w-75', 'placeholder': 'Логин'}))
-    first_name = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control w-75', 'placeholder': 'Имя'}))
-    phone_number = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control w-75', 'placeholder': 'Номер телефона'}))
-    date_birth = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control w-75', 'placeholder': 'Дата рождения'}))
-    email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'class': 'form-control w-75', 'placeholder': 'Email-адрес'}))
-    password1 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control w-75', 'placeholder': 'Пароль'}))
-    password2 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control w-75', 'placeholder': 'Повтор пароля'}))
+    username = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Логин'}))
+    first_name = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Имя'}))
+    phone_number = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Номер телефона'}))
+    date_birth = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Дата рождения'}))
+    email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Email-адрес'}))
+    password1 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Пароль'}))
+    password2 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Повтор пароля'}))
 
     class Meta:
         model = CustomUser

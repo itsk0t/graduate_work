@@ -3,7 +3,17 @@
 {% block title %}Thank you{% endblock %}
 
 {% block content %}
-    <h1>Thank you</h1>
-    <p>Your order has been successfully completed. Your order number is
-        <strong>{{ order.id }}</strong>.</p>
+<div class="d-flex flex-column align-items-center">
+    <h2 class="mt-5">Ваш заказ был оформлен успешно. Номер вашего заказа
+        <strong>{{ order.id }}</strong>.</h2>
+
+    <div class="d-flex flex-column align-items-center">
+        <p style="font-size:20px;" class="mt-1 mb-3"><b>Выберете способ оплаты</b></p>
+        <div class="">
+            <a href="#" class="btn btn-success rounded-5">Сейчас</a>
+            <a href="#" class="btn btn-success rounded-5">При получении</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

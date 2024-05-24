@@ -29,7 +29,7 @@ footer {
 
 .btn_header_custom {
     background: #e5e5e5;
-    color: #000;
+    color: #9a9a9a;
     font-size: 20px;
     text-decoration: none;
     padding: 5px;
@@ -50,6 +50,56 @@ footer {
     opacity: 0.5;
     transition: 0.6s;
 }
+
+
+.btn_header_basket_custom {
+    background: #d75b00;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+}
+
+.btn_header_basket_custom:hover {
+    background: #d75b00;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    opacity: 0.5;
+    transition: 0.6s;
+}
+
+.btn_header_basket_delete {
+    background: #bb2d3b;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+}
+
+.btn_header_basket_delete:hover {
+    background: #bb2d3b;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    opacity: 0.5;
+    transition: 0.6s;
+}
+
 
 .product_block_title {
     font-size: 55px;
@@ -154,4 +204,15 @@ form input {
     font-size: 35px;
     opacity: 0.5;
     transition: 0.6s;
+}
+
+.gradient-custom-3 {
+    background: #84fab0;
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+}
+.gradient-custom-4 {
+    background: #84fab0;
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
 }

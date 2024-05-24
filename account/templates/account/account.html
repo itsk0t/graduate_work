@@ -6,7 +6,7 @@
     {% block content %}
     <div class="mt-4">
         <div>
-            <h2>Your Address</h2>
+            <h2>Ваши адреса</h2>
             <div>
                 {% for el in user_address %}
                 <div class="card mt-3">
@@ -27,8 +27,8 @@
                     </div>
                 </div>
                 {% endfor %}
-                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Create Address
+                <button type="button" class="btn btn-success rounded-5 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Добавить адрес
                 </button>
             </div>
         </div>
@@ -39,14 +39,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create Address</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Добавить адрес</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <div class="modal-body">
                     <form method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <input type="submit" value="OK" class="btn btn-primary">
+                        <input type="submit" value="Добавить" class="btn btn-success rounded-5">
                     </form>
                 </div>
             </div>
