@@ -1,0 +1,23 @@
+{% extends 'root.html' %}
+
+{% block title %}Promotion{% endblock %}
+
+<div>
+    {% block content %}
+    <div class="py-3 py-md-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <a href="{% url 'product:product_list' %}" style="color: #000; text-decoration: none; font-size: 20px;"><i
+                        class="fa-solid fa-arrow-left"></i></a>
+                <div>
+                    <img src="{{ promotion.image.url }}" class="w-100 rounded-3 mt-2 mb-2">
+                    <div>
+                        <h2>{{ promotion.title }}</h2>
+                        <p class="card-text">{{ promotion.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</div>

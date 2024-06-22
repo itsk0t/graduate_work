@@ -6,6 +6,32 @@
     {% block content %}
     <div class="mt-4">
         <div>
+            <h2>Ваши заказы</h2>
+            <div>
+                {% for el in order %}
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div>
+                            {% for i in order_item %}
+                            {% if i.order.id == el.id %}
+                            <img src="{{ i.product.image.url }}" style="width: 150px;">
+                            <div>
+                                <p class="card-text">
+                                    {{ i.product.title }}
+                                    {{ i.price }}
+                                    {{ i.quantity }}
+                                </p>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+        <div>
             <h2>Ваши адреса</h2>
             <div>
                 {% for el in user_address %}
@@ -27,7 +53,8 @@
                     </div>
                 </div>
                 {% endfor %}
-                <button type="button" class="btn btn-success rounded-5 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-success rounded-5 mt-3" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
                     Добавить адрес
                 </button>
             </div>

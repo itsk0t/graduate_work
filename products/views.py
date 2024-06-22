@@ -23,3 +23,9 @@ class ProductDetailView(FormMixin, DetailView):
     template_name = 'products/product_detail.html'
     context_object_name = 'product_detail'
     form_class = CartAddProductForm
+
+
+class PromotionDetail(DetailView):
+    model = Promotion
+    template_name = 'products/promotion_detail.html'
+    context_object_name = 'promotion'
