@@ -5,13 +5,20 @@
 <div>
     {% block content %}
     <div class="mt-4">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <form method="post" class="border-bottom pb-3 ">
             {% csrf_token %}
             {{ form.as_p }}
             {% if user.is_active %}
-            <input type="submit" class="btn btn-success" value="Отправить">
+            <input type="submit" class="btn btn-success rounded-5" value="Отправить">
             {% else %}
-            <a type="button" class="btn btn-success" data-bs-toggle="modal"
+            <a type="button" class="btn btn-success rounded-5" data-bs-toggle="modal"
                data-bs-target="#exampleModal">
                 Отправить
             </a>

@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import OrderItem
+from django.views.generic import DeleteView
+
+from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from cart.cart import Cart
 
@@ -24,3 +26,9 @@ def order_create(request):
         form = OrderCreateForm
     return render(request, 'orders/create.html',
                   {'cart': cart, 'form': form})
+
+
+class OrderDelete(DeleteView):
+    model = Order
+    success_url = '/account/'
+    template_name = 'orders/order_delete.html'

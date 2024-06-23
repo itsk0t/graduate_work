@@ -1,8 +1,6 @@
 {% extends 'root.html'%}
 
-{% block title %}
-Корзина покупок
-{% endblock %}
+{% block title %}Корзина покупок{% endblock %}
 
 {% block content %}
 <div>
@@ -13,12 +11,11 @@
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-2 col-lg-2 col-xl-2">
                     <a href="{% url 'product:product_detail' product.id %}">
-                        <img src="{{ product.image.url }}" class="img-fluid rounded-3">
+                        <img src="{{ product.image.url }}" class="img-fluid rounded-3" style="width: 150px;">
                     </a>
                 </div>
                 <div class="col-md-3 col-lg-3 col-xl-3">
                     <p class="lead fw-normal mb-2">{{ product.title }}</p>
-                    <!--                    <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>-->
                 </div>
                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                     <form action="{% url 'cart:cart_add' product.id %}" method="post">
@@ -29,7 +26,7 @@
                     </form>
                 </div>
                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                    <h5 class="mb-0">{{ item.total_price }}</h5>
+                    <h5 class="mb-0">{{ item.total_price }}<i class="fa-solid fa-ruble-sign ms-1"></i></h5>
                 </div>
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                     <a href="{% url 'cart:cart_remove' product.id %}" class="btn btn-danger rounded-5">Удалить</a>
@@ -37,14 +34,15 @@
             </div>
         </div>
     </div>
-    {% endwith %}
-    {% endfor %}
-
-    <div>
+    <div class="mb-5">
         <a href="{% url 'order:order_create' %}" class="btn btn-success rounded-5">
             Оформить заказ
         </a>
     </div>
+    {% endwith %}
+    {% endfor %}
+
+
 </div>
 
 

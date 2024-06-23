@@ -4,10 +4,22 @@ from products.models import Products
 from technical.models import UserAddress
 
 
+class StatusOrder(models.Model):
+    name = models.CharField(verbose_name='Статус', max_length=64)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Статус'
+        verbose_name_plural = 'Статусы'
+
+
 class Order(models.Model):
     user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Пользователь')
     address = models.ForeignKey(UserAddress, on_delete=models.CASCADE, verbose_name='Адрес')
     comment = models.TextField(verbose_name='Комментарий')
+    status = models.ForeignKey(StatusOrder, on_delete=models.CASCADE, verbose_name='Статус', default=1)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

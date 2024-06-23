@@ -12,6 +12,5 @@ def contacts_view(request):
 
 def about_us_view(request):
     inf = AboutInf.objects.all()
-    contact_inf = ContactInf.objects.all()
 
-    return render(request, 'technical/about_us.html', {'inf': inf, 'contact_inf': contact_inf})
+    return render(request, 'technical/about_us.html', {'inf': inf})

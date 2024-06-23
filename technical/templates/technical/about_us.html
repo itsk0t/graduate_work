@@ -2,22 +2,26 @@
 
 {% block title %}О нас{% endblock %}
 
-<div>
+<div class="">
     {% block content %}
-    <div class="mt-5">
+    <div class="mt-5 mb-5">
         <div>
             {% for el in inf %}
-            <div class="d-flex justify-content-between">
-                <img src="{{ el.image.url }}" class="w-50 rounded-3">
-                <div class="ms-3">
-                    <p class="card-text">{{ el.text }}</p>
-                    {% for i in contact_inf %}
-                        <p class="card-text"><b>Телефон: </b>{{ i.phone }}</p>
-                        <p class="card-text"><b>Email-адрес: </b>{{ i.email }}</p>
-                    {% endfor %}
+            {% if el.id == 2 or el.id == 4%}
+            <div class="d-flex justify-content-between flex-row-reverse mt-3 mb-3">
+                <img src="{{ el.image.url }}" class="w-25 rounded-3">
+                <div class="me-3">
+                    <p class="about_text">{{ el.text }}</p>
                 </div>
-
             </div>
+            {% else %}
+            <div class="d-flex justify-content-between">
+                <img src="{{ el.image.url }}" class="w-25 rounded-3">
+                <div class="ms-3">
+                    <p class="about_text">{{ el.text }}</p>
+                </div>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>

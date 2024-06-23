@@ -7,17 +7,31 @@
     <div class="mt-5">
         <div class="d-flex justify-content-between">
             <div class="w-50">
+                <div class="map">
+                    <h3>Зона доставки</h3>
+                    <div>
+                    <script class="rounded-5" type="text/javascript" charset="utf-8" async
+                            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aeb855a9578fa7e68419dbfc01ba81c3bd5ab27f34a4605efd5be04aa73094fa1&amp;width=1200&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between w-50 mt-3">
                 {% for el in point %}
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <p class="card-text"><b>Город: </b>{{ el.city_id }}</p>
-                        <p class="card-text"><b>Район: </b>{{ el.area }}</p>
-                        <p class="card-text"><b>Адрес: </b>{{ el.address }}</p>
-                        <p class="card-text"><b>Доставка: </b>{{ el.time_delivery }}</p>
-                        <p class="card-text"><b>Самовывоз: </b>{{ el.time_pickup }}</p>
+                <div class="">
+                    <div class="">
+                        <h3>{{ el.area}}</h3>
+                        <p>{{ el.address}}</p>
+                        <p>
+                            Время доставки: <br>
+                            {{ el.time_delivery }}
+                        </p>
+                        <p>
+                            Самовывоз: <br>
+                            {{ el.time_pickup }}
+                        </p>
                     </div>
                 </div>
                 {% endfor %}
+                </div>
             </div>
 
             <div class="w-25">

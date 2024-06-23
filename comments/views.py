@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from comments.forms import CommentForm
 from comments.models import Comments
+from django.contrib import messages
 
 
 def reviews_view(request):
@@ -8,6 +9,7 @@ def reviews_view(request):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
+            messages.success(request, 'Отзыв отправлен на модерацию. Он появится позже')
             reviews = form.save(commit=False)
             reviews.user_id = request.user
             reviews.save()

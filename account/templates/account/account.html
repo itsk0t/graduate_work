@@ -1,6 +1,6 @@
 {% extends 'root.html' %}
 
-{% block title %}Account{% endblock %}
+{% block title %}Профиль{% endblock %}
 
 <div>
     {% block content %}
@@ -10,21 +10,30 @@
             <div>
                 {% for el in order %}
                 <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <p class="card-text">{{ el.created }}</p>
+                        <a href="{% url 'order:order_delete' el.id %}" class="btn_order_delete">Отменить</a>
+                    </div>
                     <div class="card-body">
-                        <div>
+                        <div class="d-flex flex-column">
                             {% for i in order_item %}
                             {% if i.order.id == el.id %}
-                            <img src="{{ i.product.image.url }}" style="width: 150px;">
-                            <div>
-                                <p class="card-text">
-                                    {{ i.product.title }}
-                                    {{ i.price }}
-                                    {{ i.quantity }}
-                                </p>
+                            <div class="d-flex mt-4">
+                                <img src="{{ i.product.image.url }}" style="width: 150px;">
+                                <div class="ms-3">
+                                    <p class="card-text mt-4">
+                                        {{ i.product.title }} <br>
+                                        {{ i.price }} <i class="fa-solid fa-ruble-sign ms-1"></i> <br>
+                                        Количество: {{ i.quantity }} <br>
+                                    </p>
+                                </div>
                             </div>
                             {% endif %}
                             {% endfor %}
                         </div>
+                    </div>
+                    <div class="card-footer">
+                        Статус заказа: <b>{{ el.status }}</b>
                     </div>
                 </div>
 
@@ -32,7 +41,7 @@
             </div>
         </div>
         <div>
-            <h2>Ваши адреса</h2>
+            <h2 class="mt-4">Ваши адреса</h2>
             <div>
                 {% for el in user_address %}
                 <div class="card mt-3">

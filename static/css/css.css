@@ -216,3 +216,22 @@ form input {
     background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
     background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
 }
+
+.btn_order_delete {
+    text-decoration: none;
+    color: red;
+}
+
+.btn_order_delete:hover {
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.6s;
+}
+
+.about_text {
+    color: #000;
+    font-size: 23px;
+    text-align: justify;
+}
